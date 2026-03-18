@@ -3,6 +3,7 @@ package id.employee.app.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "assessments")
@@ -20,7 +21,7 @@ public class Assessment {
 
     @ManyToOne
     @JoinColumn(name = "employee_id")
-    @JsonBackReference
+    @JsonIgnore
     private Employee employee;
 
     @ManyToOne

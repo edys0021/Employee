@@ -3,8 +3,9 @@ package id.employee.app.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "employees")
@@ -30,6 +31,6 @@ public class Employee {
     private Department department;
 
     @OneToMany(mappedBy = "employee")
-    @JsonManagedReference
+    @JsonIgnore
     private List<Assessment> assessments;
 }
